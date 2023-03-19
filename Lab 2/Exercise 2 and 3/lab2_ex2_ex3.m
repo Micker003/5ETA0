@@ -14,7 +14,7 @@ LO = cos(2*pi*n*fc);                % local oscillator
 
 % making a filter for signal 3:
 
-filt_signal = designfilt('lowpassfir','StopbandFrequency', 4e3,'PassbandFrequency', 3e3, 'PassbandRipple',2, 'StopbandAttenuation', 60, 'SampleRate', 10e3, 'DesignMethod','kaiserwin');
+filt_signal = designfilt('lowpassfir','StopbandFrequency', fc,'PassbandFrequency', 1/2 * fc, 'PassbandRipple',2, 'StopbandAttenuation', 60, 'SampleRate', 10e3, 'DesignMethod','kaiserwin');
 
 s_c = signal.*LO;                % output after local oscillator - converted to baseband
 s_f = filter(filt_signal, s_c);  % output after LPF
@@ -49,8 +49,8 @@ periodogram(t_3, [], [], fs, 'centered');
 % Convert to baseband
 
 f_1 = 1000 ; % choose the appropriate frequencies
-f_2 = 2000 ;
-f_3 = 3000 ;
+f_2 = 2500 ;
+f_3 = 4000 ;
 
 LO_1 = cos(2*pi*f_1*t_1);
 LO_2 = cos(2*pi*f_2*t_2);
@@ -74,7 +74,7 @@ periodogram(q_3, [], [], fs, 'centered');
 
 % making the LPF
 
-LPF = designfilt('lowpassfir','StopbandFrequency', 4e3,'PassbandFrequency', 3e3, 'PassbandRipple',2, 'StopbandAttenuation', 60, 'SampleRate', fs, 'DesignMethod','kaiserwin');
+LPF = designfilt('lowpassfir','StopbandFrequency', 1000 ,'PassbandFrequency', 500, 'PassbandRipple',2, 'StopbandAttenuation', 60, 'SampleRate', fs, 'DesignMethod','kaiserwin');
 
 r_1 = filter(LPF, q_1) ;
 r_2 = filter(LPF, q_2) ;
@@ -101,9 +101,9 @@ plot(r_2)
 subplot(3,1,3)
 plot(r_3)
 
-% 
-% %exercise 3.3
-% 
-% message_1 = binaryToChar(r_1,   ,   );
-% message_2 = binaryToChar(r_2,   ,   );
-% message_3 = binaryToChar(r_3,   ,   );
+
+%exercise 3.3
+
+message_1 = binaryToChar(r_1 * 2,  1 , 'unipolarNRZ'  );
+message_2 = binaryToChar(r_2*2,  2 , 'bipolarRZ'  );
+message_3 = binaryToChar(r_3*2,  3 , 'polarNRZ' );
