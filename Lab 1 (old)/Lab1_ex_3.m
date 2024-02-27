@@ -17,11 +17,13 @@ train1 = pulstran(t_1, delay1, 'rectpuls', tau_1); %the pulsetrain to get WAVE_S
 WAVE_SAMP = DLORENTZ'.*train1;
 
 %space for you to create its spectral plot
-T_s = 30e-6
-[spec1, specb1] = calculateSpectrumdB(WAVE_SAMP, 35e3)
-plot(spec1, specb1)
-
-
+%
+%
+%
+%
+%
+%
+%
 
 %% Exercise 3.3
 clear all;
@@ -51,10 +53,14 @@ train3 = pulstran(t_3, delay3, 'rectpuls', tau_3);
 
 %space for you to multiply DLORENTZ with the correct pulsetrain and plot
 %its time and frequency domain plots
-
-
-OURSAMP = train2' .* DLORENTZ
-plot(OURSAMP)
-figure
-[spec1, specb1] = calculateSpectrum(OURSAMP, 70e3)
-plot(spec1, specb1)
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
