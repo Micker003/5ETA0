@@ -11,7 +11,7 @@ n = 10^(-6);
 T_s = 30*n;
 tau_1 = (1/6)*T_s;                 
 delay1 = (0:30:600)*n;
-t_1 = (0:1:600-1)*n;
+t_1 = (0:1:600-1)*n; 
 
 train1 = pulstran(t_1, delay1, 'rectpuls', tau_1); %the pulsetrain to get WAVE_SAMP
 WAVE_SAMP = DLORENTZ'.*train1;
