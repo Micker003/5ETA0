@@ -14,7 +14,7 @@ LO = cos(2*pi*n*fc);                % local oscillator
 
 % making a filter for signal 3:
 
-filt_signal = designfilt('lowpassfir', 'StopbandFrequency', 300,'PassbandFrequency', 250, 'PassbandRipple',2, 'StopbandAttenuation', 60, 'SampleRate', 10e3, 'DesignMethod','kaiserwin');
+filt_signal = designfilt('lowpassfir', 'StopbandFrequency', 275,'PassbandFrequency', 250, 'PassbandRipple',2, 'StopbandAttenuation', 60, 'SampleRate', 10e3, 'DesignMethod','kaiserwin');
 
 s_c = signal.*LO;                % output after local oscillator - converted to baseband
 s_f = filter(filt_signal, s_c);  % output after LPF
@@ -66,7 +66,7 @@ periodogram(q_3,[],[],R_s,"centered")
 
 % making the LPF
 
-LPF_1 =  designfilt('lowpassfir', 'StopbandFrequency', 230,'PassbandFrequency', 200, 'PassbandRipple',2, 'StopbandAttenuation', 60, 'SampleRate', 10e3, 'DesignMethod','kaiserwin');
+LPF_1 =  designfilt('lowpassfir', 'StopbandFrequency', 230,'PassbandFrequency', 180, 'PassbandRipple',2, 'StopbandAttenuation', 60, 'SampleRate', 10e3, 'DesignMethod','kaiserwin');
 LPF =  designfilt('lowpassfir', 'StopbandFrequency', 350,'PassbandFrequency', 250, 'PassbandRipple',2, 'StopbandAttenuation', 60, 'SampleRate', 10e3, 'DesignMethod','kaiserwin');
 
 
