@@ -4,7 +4,7 @@ close all
 periodogram(wav, [], [], fs,'centered')
 
 hold on
-[wav2, fs2] = audioread("assignment-1.1_received.wav");
+[wav2, fs2] = audioread("50dbm - far away.wav");
 periodogram(wav2, [], [], fs2,'centered')
 
 wavdiff = normalize(wav) - normalize(wav2);
